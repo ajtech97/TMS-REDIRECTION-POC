@@ -6,21 +6,14 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class DynamicProcessingService {
+  componentName = 'Dynamic Process Service';
   constructor(private dialog: MatDialog, private router: Router) {}
   redirectProcessing(url: string, queryParams?: [] | null) {
-    // let processParam = this.convertArrayOfObjectToASingleObject(queryParams);
-
     this.router.navigate([url], {
       queryParams: queryParams ? queryParams : undefined,
     });
   }
-  // convertArrayOfObjectToASingleObject(queryParams: [] | null | undefined) {
-  //   if (queryParams?.length) {
-  //     return queryParams.reduce((acc, obj: any) => {
-  //       return { ...acc, ...obj };
-  //     }, {});
-  //   } else return null;
-  // }
+
   openDialog(
     component: any,
     data?: {} | null | undefined,
